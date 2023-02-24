@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Cookies from 'js-cookie';
 
 function LoginInput(props) {
     const {id, placeholder, labelText, value, onChange, type} = props;
@@ -37,9 +38,9 @@ export default function LoginForm(props) {
               }),
         });
         const data = await response.json()
-        console.log("TOKEN:", data.access)
+        const accessToken = Cookies.get('access_token');
         setIsLoggedIn(true);
-        localStorage.setItem('accessToken', data.access);
+        Cookies.set('accessToken', data.access);
     }
 
     return (

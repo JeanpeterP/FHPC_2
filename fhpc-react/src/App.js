@@ -5,6 +5,7 @@ import LoginForm from "./Login"
 import {BrowserRouter as Router} from 'react-router-dom'
 import { useState } from 'react';
 import Sidebar from './components/Sidebar';
+import Home from './pages/index';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -19,10 +20,10 @@ function App() {
 
   return (
     <Router>
-      <Sidebar/>
+      <Home />
       <Navbar isLoggedIn={isLoggedIn} handleLogout={handleLogout}/>
-      <AccountForm />
-      <LoginForm setIsLoggedIn={setIsLoggedIn}/>
+        <AccountForm />
+        <LoginForm setIsLoggedIn={setIsLoggedIn}/>
     </Router>
   );
 }
